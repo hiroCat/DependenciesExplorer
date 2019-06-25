@@ -18,4 +18,11 @@ I has a LOT of limitations/work in progress but it's a start, so let's list them
 - Using nuget (yeah I didn't realize that I wasn't using paket since late on, to change tho !)
 - All together (it's a bit of a mess, to split in the future!)
 - The test/no test validation is done checking the xunit/nunit paket so may not be accurate.
+- The D3 graph it's ... well it's (to improve)
 - Maybe other stuff that surely I haven't tried
+
+## Content/HowtoDev
+As I mentioned on the known issues I didn't find the xPlot package for d3 so I uploaded a nuget here (BAD hiro! BAD!)
+The folder structure then follows this a rawDependencies folder where you find the infamous nugget and a dependenciesTest folder where you find the visual studio solution.
+Overall all the code is in [DependenciesExplorer/dependenciesTest/testingDep/Program.fs](https://github.com/hiroCat/DependenciesExplorer/blob/master/dependenciesTest/testingDep/Program.fs) (and I'm not proud of that).
+If you want to develop/debugg I suggest to create a local folder for nuget packages and drop the mentioned above there. If something is not working you can always rely on the [source code](https://github.com/fslaborg/XPlot) for that.
