@@ -14,4 +14,8 @@
     <PackageReference Include="XPlot.D3" Version="2.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GEXFConverter\GEXFConverter.csproj" />
+  </ItemGroup>
+
 </Project>

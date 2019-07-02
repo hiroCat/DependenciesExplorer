@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "testingDep", "testingDep\testingDep.fsproj", "{AD9C0D9C-A1FF-415C-9D4E-9C204936C45C}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "testingDep", "testingDep\testingDep.fsproj", "{AD9C0D9C-A1FF-415C-9D4E-9C204936C45C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEXFConverter", "GEXFConverter\GEXFConverter.csproj", "{3149A8C8-A513-4A9A-AE1E-91E78C5EE9DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AD9C0D9C-A1FF-415C-9D4E-9C204936C45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD9C0D9C-A1FF-415C-9D4E-9C204936C45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD9C0D9C-A1FF-415C-9D4E-9C204936C45C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3149A8C8-A513-4A9A-AE1E-91E78C5EE9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3149A8C8-A513-4A9A-AE1E-91E78C5EE9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3149A8C8-A513-4A9A-AE1E-91E78C5EE9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3149A8C8-A513-4A9A-AE1E-91E78C5EE9DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

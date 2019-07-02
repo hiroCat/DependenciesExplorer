@@ -159,7 +159,10 @@ module createChart =
 
     let createChart (pList:paket seq)(inputArgs:inputParams) = 
         let n = createNodes pList inputArgs
-        createEdges pList n inputArgs       
+        let e = createEdges pList n inputArgs
+        GEXFConverter.ConverterToGEXF.Convert(n |> Seq.toList |> l,
+                                              e |> Seq.map(fun (x,y) -> struct (x,y))|> Seq.toList |> l)
+        e
         |> Chart.Create
         |> Chart.WithHeight 1000
         |> Chart.WithWidth 1900
