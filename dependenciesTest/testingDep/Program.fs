@@ -132,12 +132,11 @@ module paketConverter =
         }
 
 module createChart = 
+
+    let l (xs: 'a list) = new System.Collections.Generic.List<'a>(xs)
+
     let createEdges (pList:paket seq) (n:string seq) (i:inputParams) = 
-        let f = if i.filterOutTestP then 
-                    pList |> Seq.where(fun x -> x.isTestPacket |> not)
-                else 
-                    pList
-        f
+        pList
         |> Seq.collect(fun x -> if i.filterOutExtP then
                                     x.dependencies
                                     |> Seq.map(fun d -> if Seq.contains d.name n then 
@@ -151,13 +150,16 @@ module createChart =
                                     |> Seq.choose id
                         )
 
-    let createNodes (pList:paket seq) = 
-        pList
+    let createNodes (pList:paket seq) (i:inputParams) = 
+        if i.filterOutTestP then 
+            pList |> Seq.where(fun x -> x.isTestPacket |> not)
+        else 
+            pList
         |> Seq.map(fun x -> x.name)
 
     let createChart (pList:paket seq)(inputArgs:inputParams) = 
-        let n = createNodes pList
-        createEdges pList n inputArgs
+        let n = createNodes pList inputArgs
+        createEdges pList n inputArgs       
         |> Chart.Create
         |> Chart.WithHeight 1000
         |> Chart.WithWidth 1900
