@@ -153,16 +153,17 @@ module createChart =
                                     |> Seq.choose id
                         )
 
-    let createNodes (pList:paket seq) (i:inputParams) = 
-        if i.filterOutTestP then 
-            pList |> Seq.where(fun x -> x.isTestPacket |> not)
-        else 
-            pList
-        |> Seq.map(fun x -> x.name)
+    let filterNodes (pList:paket seq) (i:inputParams) =
+         if i.filterOutTestP then
+             pList |> Seq.where(fun x -> x.isTestPacket |> not)
+         else
+             pList
 
     let createChart (pList:paket seq)(inputArgs:inputParams) = 
-        let n = createNodes pList inputArgs
-        createEdges pList n inputArgs       
+        let fPList = filterNodes pList inputArgs
+        let n = fPList |> Seq.map(fun x -> x.name)
+        let e = createEdges fPList n inputArgs
+        e
         |> Chart.Create
         |> Chart.WithHeight 1000
         |> Chart.WithWidth 1900
