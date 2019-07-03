@@ -93,7 +93,10 @@ module paketConverter =
 
     let isTestPackageD (p:paket seq) = 
         p
-        |> Seq.where(fun x -> x.name.Equals("xunit") || x.name.Equals("nunit"))
+        |> Seq.where(fun x -> x.name.Equals("xunit") || 
+                              x.name.Equals("nunit") || 
+                              x.name.Equals("SpecFlow.xUnit") ||
+                              x.name.Equals("SpecFlow.Tools.MsBuild.Generation"))
         |> Seq.isEmpty
         |> not
 
