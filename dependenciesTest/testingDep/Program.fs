@@ -153,16 +153,16 @@ module createChart =
                                     |> Seq.choose id
                         )
 
-    let createNodes (pList:paket seq) (i:inputParams) = 
-        if i.filterOutTestP then 
-            pList |> Seq.where(fun x -> x.isTestPacket |> not)
-        else 
-            pList
-        |> Seq.map(fun x -> x.name)
+    let filterNodes (pList:paket seq) (i:inputParams) =
+         if i.filterOutTestP then
+             pList |> Seq.where(fun x -> x.isTestPacket |> not)
+         else
+             pList
 
     let createChart (pList:paket seq)(inputArgs:inputParams) = 
-        let n = createNodes pList inputArgs
-        let e = createEdges pList n inputArgs
+        let fPList = filterNodes pList inputArgs
+        let n = fPList |> Seq.map(fun x -> x.name)
+        let e = createEdges fPList n inputArgs
         GEXFConverter.ConverterToGEXF.Convert(n |> Seq.toList |> l,
                                               e |> Seq.map(fun (x,y) -> struct (x,y))|> Seq.toList |> l)
         e
